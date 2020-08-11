@@ -1,16 +1,23 @@
-import React from "react";
-import { Provider } from "react-redux";
+import React from 'react';
+import { Router as BrowserRouter } from 'react-router-dom';
 
-import store from "./store";
+import Router from 'pages/Router';
+import withConnectors from './connectors';
 
-import Wrapper from "./Wrapper";
+import history from 'custom-history';
+/**
+ * @author
+ * @class App
+ **/
 
-function App() {
-  return (
-    <Provider store={store}>
-      <Wrapper />
-    </Provider>
-  );
+class App extends React.PureComponent<{}> {
+  render() {
+    return (
+      <BrowserRouter history={history}>
+        <Router />
+      </BrowserRouter>
+    );
+  }
 }
 
-export default App;
+export default withConnectors(App);
