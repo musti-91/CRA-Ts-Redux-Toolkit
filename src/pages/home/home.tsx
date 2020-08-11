@@ -1,4 +1,6 @@
 import React, { FC, memo } from 'react';
+import Layout from 'components/Layout';
+import { Container } from './styled';
 
 interface Props {}
 
@@ -8,7 +10,11 @@ interface Props {}
  **/
 
 const Home: FC<Props> = (props) => {
-  return <div>Home</div>;
+  return (
+    <Layout title="Home">
+      <Container>Home Page Loaded</Container>
+    </Layout>
+  );
 };
 
 export default memo(Home);

@@ -11,15 +11,15 @@ const { actions, reducer } = createSlice({
   name: 'system',
   initialState,
   reducers: {
-    systemStart: (state, _): any => ({ ...state, booting: true }),
-    systemReady: (state, _): any => ({ ...state, ready: true, booting: false }),
+    systemStart: (state): any => ({ ...state, booting: true }),
+    systemReady: (state): any => ({ ...state, ready: true, booting: false }),
     systemFail: (state, { payload }): any => ({
       ...state,
       booting: false,
       ready: false,
       error: payload,
     }),
-    resetStore: (state, _) => ({ ...state, error: undefined, booting: false, ready: false }),
+    resetStore: (state) => ({ ...state, error: undefined, booting: false, ready: false }),
   },
 });
 

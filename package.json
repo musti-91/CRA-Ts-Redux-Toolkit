@@ -1,58 +1,116 @@
 {
-  "name": "cra-ts-redux",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.4.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "axios": "^0.19.2",
-    "humps": "^2.0.1",
-    "lodash": "^4.17.19",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "redux-persist": "^6.0.0",
-    "styled-components": "^5.1.1",
-    "typescript": "~3.7.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/humps": "^2.0.0",
-    "@types/lodash": "^4.14.159",
-    "@types/react-redux": "^7.1.9",
-    "@types/react-router-dom": "^5.1.5",
-    "@types/redux-logger": "^3.0.8",
-    "@types/redux-persist": "^4.3.1",
-    "@types/styled-components": "^5.1.2",
-    "redux-logger": "^3.0.6"
-  }
+    "name": "cra-ts-redux",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "build-all": "yarn build & yarn build-storybook && yarn build-coverage",
+        "test:watch": "jest --watch",
+        "test": "jest",
+        "eject": "react-scripts eject",
+        "storybook": "start-storybook -p 6006 -s public",
+        "build-storybook": "build-storybook -c .storybook -o ./build/storybook",
+        "build-coverage": "jest --ci --coverageDirectory=./build/coverage"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged && yarn test"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,js,tsx,json,css,scss,md,babelrc,eslintrc,prettierrc}": [
+            "git add"
+        ]
+    },
+    "dependencies": {
+        "@reduxjs/toolkit": "^1.4.0",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.3.2",
+        "@testing-library/user-event": "^7.1.2",
+        "@types/jest": "^24.0.0",
+        "@types/node": "^12.0.0",
+        "@types/react": "^16.9.0",
+        "@types/react-dom": "^16.9.0",
+        "axios": "^0.19.2",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.3",
+        "humps": "^2.0.1",
+        "lodash": "^4.17.19",
+        "query-string": "^6.13.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-redux": "^7.2.1",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "3.4.1",
+        "redux-persist": "^6.0.0",
+        "styled-components": "^5.1.1",
+        "typescript": "~3.7.2"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.11.1",
+        "@babel/plugin-transform-flow-strip-types": "^7.10.4",
+        "@storybook/addon-actions": "^6.0.2",
+        "@storybook/addon-essentials": "^6.0.1",
+        "@storybook/addon-info": "^5.3.19",
+        "@storybook/addon-knobs": "^6.0.1",
+        "@storybook/addon-links": "^6.0.1",
+        "@storybook/node-logger": "^6.0.1",
+        "@storybook/preset-create-react-app": "^3.1.4",
+        "@storybook/react": "^6.0.1",
+        "@types/axios": "^0.14.0",
+        "@types/enzyme": "^3.10.5",
+        "@types/enzyme-adapter-react-16": "^1.0.6",
+        "@types/humps": "^2.0.0",
+        "@types/lodash": "^4.14.159",
+        "@types/react-helmet": "^6.1.0",
+        "@types/react-redux": "^7.1.9",
+        "@types/react-router-dom": "^5.1.5",
+        "@types/redux-logger": "^3.0.8",
+        "@types/redux-persist": "^4.3.1",
+        "@types/storybook__addon-info": "^5.2.1",
+        "@types/styled-components": "^5.1.2",
+        "babel-cli": "^6.26.0",
+        "babel-loader": "^8.1.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "enzyme-to-json": "^3.5.0",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.11",
+        "react-helmet": "^6.1.0",
+        "react-is": "^16.13.1",
+        "redux-logger": "^3.0.6"
+    },
+    "jest": {
+        "roots": [
+            "<rootDir>/src"
+        ],
+        "collectCoverage": true,
+        "setupFilesAfterEnv": [
+            "<rootDir>/config/jest.config.js"
+        ],
+        "testEnvironment": "node",
+        "moduleNameMapper": {
+            "^.+\\.scss$": "identity-obj-proxy",
+            "^.+\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/config/jest.file-mock.js"
+        },
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
+        ]
+    }
 }

@@ -1,7 +1,7 @@
 export enum ROUTE {
-  ROOT = "/",
-  CALLBACK = "/callback",
+  ROOT = '/',
+  CALLBACK = '/callback',
 
   // * NOT AUTHORISED ROUTE
-  REDIRECT_NOT_AUTHORIZED = "/login",
+  REDIRECT_NOT_AUTHORIZED = '/login',
 }

@@ -47,7 +47,7 @@ axiosApi.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error && error.response && error.response.status === 401) {
-      storeConfig.store.dispatch(resetStore({}));
+      storeConfig.store.dispatch(resetStore());
       window.location.assign(config.API_BASE);
     }
     return Promise.reject(error);

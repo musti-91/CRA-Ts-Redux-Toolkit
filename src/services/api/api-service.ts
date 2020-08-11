@@ -1,4 +1,4 @@
-import { AxiosPromise, AxiosInstance } from "axios";
+import { AxiosInstance} from 'axios';
 
 export default class ApiService {
   private api: AxiosInstance;
@@ -11,8 +11,8 @@ export default class ApiService {
   getAccessToken = async (code: string): Promise<any> => {
     return Promise.resolve({
       data: {
-        accessToken: "Access token " + code,
-        refreshToken: "this is refresh token",
+        accessToken: 'Access token ' + code,
+        refreshToken: 'this is refresh token',
       },
     });
   };
